@@ -1,0 +1,120 @@
+<html>
+<head>
+</head>
+<body>
+<fieldset>
+<legend>Q‰ÁÒ:</legend>
+<form id="myForm">
+<div>
+<input type="checkbox" id="scales1" name="member" value="¯–ì" checked />
+<label for="scales1">¯–ì</label>
+</div>
+<div>
+<input type="checkbox" id="scales2" name="member" value="“J“c" checked />
+<label for="scales2">“J“c</label>
+</div>
+<div>
+<input type="checkbox" id="scales3" name="member" value="ˆÉ“Œ" checked />
+<label for="scales3">ˆÉ“Œ</label>
+</div>
+<div>
+<input type="checkbox" id="scales4" name="member" value="‹ß“¡" checked />
+<label for="scales4">‹ß“¡</label>
+</div>
+<div>
+<input type="checkbox" id="scales5" name="member" value="’¬“c" checked />
+<label for="scales5">’¬“c</label>
+</div>
+<div>
+<input type="checkbox" id="scales5" name="member" value="‘•Û" checked />
+<label for="scales5">‘•Û</label>
+</div>
+<div>
+<input type="checkbox" id="scales5" name="member" value="‰i“‡" checked />
+<label for="scales5">‰i“‡</label>
+</div>
+<div>
+<input type="checkbox" id="scales5" name="member" value="’†ì" checked />
+<label for="scales5">’†ì</label>
+</div>
+<div>
+<input type="checkbox" id="scales5" name="member" value="“ñŠK“°" checked />
+<label for="scales5">“ñŠK“°</label>
+</div>
+<div>
+<input type="checkbox" id="scales5" name="member" value="‰ª’|" checked />
+<label for="scales5">‰ª’|</label>
+</div>
+<div>
+<input type="checkbox" id="scales5" name="member" value="•yŠ~" checked />
+<label for="scales5">•yŠ~</label>
+</div>
+<div>
+<input type="checkbox" id="scales5" name="member" value="R“c" checked />
+<label for="scales5">R“c</label>
+</div>
+<input type="submit" value="ƒVƒƒƒbƒtƒ‹">
+</form>
+</fieldset>
+
+
+<div style="text-align:center;">
+<p>‘O</p>
+<table id="result" border='1' align="center"></table>
+<p>Œã</p>
+</div>
+
+<script>
+function randomSort(a,b){
+ @@return Math.random() - 0.5;
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('myForm');
+    const resultDiv = document.getElementById('result');
+
+    form.addEventListener('submit', function (event) {
+		event.preventDefault(); // ƒy[ƒW‚ÌƒŠƒ[ƒh‚ğ–h‚®
+		
+		const vals = [];
+		const checkboxes = document.querySelectorAll('input[ name="member"]:checked');
+		checkboxes.forEach(function(checkbox) {
+		 vals.push(checkbox.value);
+		});
+		
+        const shuffledArray = vals.slice().sort(randomSort);
+		console.log(shuffledArray)
+		
+		let inserthtml = '<table id="result" border="1" align="center">';
+		for (let i=1;i<17;i++){
+		   if ((i-1) % 4 ==0){
+             inserthtml=inserthtml+"<tr>";
+		   }
+		   if ((i-1) % 2 == 0){
+             inserthtml=inserthtml+"<th>";
+		   }
+		   if (i<shuffledArray.length+1){
+              inserthtml=inserthtml+shuffledArray[i-1];
+		   }else{
+              inserthtml=inserthtml+i;
+		   }
+		   if (i>1 & (i-1) % 2 == 1){
+              inserthtml=inserthtml+"</th>";
+		   }else{
+		      inserthtml=inserthtml+",";
+		   }
+		   if (i>1 & (i-1) % 4 ==3){
+              inserthtml=inserthtml+"</tr>";
+		   }
+
+		}
+		inserthtml=inserthtml+"</table>";
+		resultDiv.innerHTML = inserthtml;
+		console.log(inserthtml)
+	});
+});
+
+</script>
+
+</body>
+</html>
